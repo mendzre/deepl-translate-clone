@@ -1,21 +1,20 @@
-import { Button } from 'react-bootstrap'
 import { ArrowIcon } from '../Icons.tsx'
 import { AUTO_LANGUAGE } from '../../typings/constants.ts'
 import useTranslate from '../../hooks/useTranslate.ts'
+import ButtonWithPopover from '../Popover/ButtonWithPopover.tsx'
 
 function InterchangeButton() {
   const { fromLanguage, interchangeLanguages } = useTranslate()
 
   return (
-    <Button
+    <ButtonWithPopover
+      text="Reverse the source language and the target language"
       variant="link"
-      type="button"
+      handleClick={interchangeLanguages}
       disabled={fromLanguage === AUTO_LANGUAGE}
-      onClick={interchangeLanguages}
-      aria-label="Interchange languages button"
     >
       <ArrowIcon />
-    </Button>
+    </ButtonWithPopover>
   )
 }
 

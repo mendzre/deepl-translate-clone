@@ -1,4 +1,5 @@
 import { Popover } from 'react-bootstrap'
+import PopoverBody from './PopoverBody.tsx'
 
 interface Props {
   text: string
@@ -7,9 +8,9 @@ interface Props {
 function PopoverHover({ text }: Props) {
   return (
     <Popover className="bg-dark rounded">
-      <Popover.Body className="px-3 py-2 text-white">
+      <PopoverBody>
         <small>{text}</small>
-      </Popover.Body>
+      </PopoverBody>
     </Popover>
   )
 }

@@ -6,17 +6,25 @@ import PopoverHover from './PopoverHover.tsx'
 import waitByMilliseconds from '../../utils/waitByMilliseconds.ts'
 
 interface Props {
-  id: string
+  id?: string
   text: string
+  variant?: string
   handleClick: (
-    setTrigger: React.Dispatch<React.SetStateAction<OverlayTriggerType[]>>,
     setOverlay: React.Dispatch<React.SetStateAction<OverlayChildren>>,
     setShow: React.Dispatch<React.SetStateAction<boolean>>
   ) => void
+  disabled?: boolean
   children: ReactNode
 }
 
-function ButtonWithPopover({ id, text, handleClick, children }: Props) {
+function ButtonWithPopover({
+  id,
+  text,
+  variant,
+  handleClick,
+  disabled,
+  children
+}: Props) {
   const [trigger, setTrigger] = useState<OverlayTriggerType[]>([
     'hover',
     'focus'
@@ -27,17 +35,20 @@ function ButtonWithPopover({ id, text, handleClick, children }: Props) {
   const [showPopover, setShow] = useState<boolean>(false)
 
   function handleMouseEnter() {
-    setTrigger(['hover', 'focus'])
-    setOverlay(PopoverHover({ text }))
-    setShow(true)
+    if (trigger.includes('hover')) {
+      setShow(true)
+    }
   }
 
   function handleMouseLeave() {
     ;(async () => {
-      if (!trigger.includes('click')) {
-        await waitByMilliseconds(150)
-        setShow(false)
+      if (trigger.includes('click')) {
+        setTrigger(['hover', 'focus'])
+        setOverlay(PopoverHover({ text }))
       }
+
+      await waitByMilliseconds(150)
+      setShow(false)
     })().catch(() => {})
   }
 
@@ -51,12 +62,15 @@ function ButtonWithPopover({ id, text, handleClick, children }: Props) {
     >
       <Button
         id={id}
-        variant="white"
+        variant={variant ?? 'white'}
         onClick={() => {
-          handleClick(setTrigger, setOverlay, setShow)
+          setTrigger(['click', 'focus'])
+          handleClick(setOverlay, setShow)
         }}
         onMouseEnter={handleMouseEnter}
         onMouseLeave={handleMouseLeave}
+        aria-label={text}
+        disabled={disabled}
       >
         {children}
       </Button>

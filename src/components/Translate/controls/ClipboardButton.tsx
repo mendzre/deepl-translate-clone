@@ -1,4 +1,3 @@
-import type { OverlayTriggerType } from 'react-bootstrap/esm/OverlayTrigger'
 import type { OverlayChildren } from 'react-bootstrap/esm/Overlay'
 import ButtonWithPopover from '../../Popover/ButtonWithPopover.tsx'
 import { ClipboardIcon } from '../../Icons.tsx'
@@ -11,25 +10,17 @@ function Clipboard() {
   const hoverText = 'Copy to the clipboard'
 
   function handleClick(
-    setTrigger: React.Dispatch<React.SetStateAction<OverlayTriggerType[]>>,
     setOverlay: React.Dispatch<React.SetStateAction<OverlayChildren>>,
     setShow: React.Dispatch<React.SetStateAction<boolean>>
   ) {
     ;(async () => {
-      setShow(false)
-
       await waitByMilliseconds(150)
-
-      setTrigger(['click', 'focus'])
       setOverlay(PopoverSuccess({ text: 'Copied translation' }))
 
       await waitByMilliseconds(150)
-
-      setShow(true)
       navigator.clipboard.writeText(result).catch(() => {})
 
       await waitByMilliseconds(500)
-
       setShow(false)
     })().catch(() => {})
   }
