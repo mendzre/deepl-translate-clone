@@ -1,0 +1,8 @@
+a {
+  text-decoration: none;
+  transition: text-decoration ease-in-out 0.15s;
+
+  &:hover {
+    text-decoration: underline;
+  }
+}

@@ -1,0 +1,13 @@
+.popover {
+  &.bs-popover-top {
+    .popover-arrow::after {
+      border-top-color: $dark;
+    }
+    
+    &.popover-success {
+      .popover-arrow::after {
+        border-top-color: $success;
+      }
+    }
+  }
+}

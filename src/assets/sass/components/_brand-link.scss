@@ -1,0 +1,25 @@
+.brand-link {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  font-size: 1.25rem;
+  text-decoration: none !important;
+  color: $primary;
+
+  img {
+    width: 2rem;
+    aspect-ratio: 3 / 4;
+  }
+
+  strong {
+    --border-width: 3px;
+    position: relative;
+    padding-block: 1rem calc(1rem - var(--border-width));
+    border-bottom: var(--border-width) solid transparent;
+    transition: border-color ease-in-out 0.15s;
+
+    &:hover {
+      border-bottom: var(--border-width) solid $primary-hover;
+    }
+  }
+}

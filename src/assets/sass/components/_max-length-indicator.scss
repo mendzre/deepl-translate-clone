@@ -1,0 +1,12 @@
+@use '../abstracts/mixins';
+
+span#max-length-indicator {
+  position: absolute;
+  bottom: 1rem;
+  right: 1.25rem;
+  color: $primary;
+
+  @include mixins.media(md) {
+    right: 1.5rem;
+  }
+}

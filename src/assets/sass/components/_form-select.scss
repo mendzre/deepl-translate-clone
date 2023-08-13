@@ -1,0 +1,23 @@
+@use '../abstracts/mixins';
+
+.form-select {
+  width: 100%;
+  transition: color ease-in-out 0.15s;
+  cursor: pointer;
+
+  &:hover {
+    color: $primary-hover;
+  }
+
+  &:focus {
+    box-shadow: none;
+  }
+
+  option:hover {
+    background-color: black;
+  }
+
+  @include mixins.media(md) {
+    width: fit-content;
+  }
+}

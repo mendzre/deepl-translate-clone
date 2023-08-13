@@ -1,0 +1,12 @@
+@use 'sass:map';
+
+$breakpoints: (
+  sm: 576px,
+  md: 768px,
+  lg: 992px
+);
+
+$primary: rgb(15, 43, 70);
+$primary-hover: #006494;
+$font-family-base: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto,
+  Helvetica, Arial, sans-serif;

@@ -1,0 +1,53 @@
+@use '../abstracts/mixins';
+
+.btn {
+  &.btn-white {
+    padding: 0.5rem;
+
+    &:hover {
+      background-color: $gray-200;
+    }
+
+    &#clipboard {
+      position: absolute;
+      bottom: 0.25rem;
+      right: 1rem;
+
+      @include mixins.media(md) {
+        bottom: 0.5rem;
+        right: 1.5rem;
+      }
+    }
+
+    &#cleaner {
+      position: absolute;
+      top: 0.25rem;
+      right: 1rem;
+
+      @include mixins.media(md) {
+        top: 0.5rem;
+        right: 0.5rem;
+      }
+    }
+
+    &#speaker {
+      position: absolute;
+      bottom: 0.25rem;
+      left: 1rem;
+
+      @include mixins.media(md) {
+        bottom: 0.5rem;
+        left: 1.5rem;
+      }
+    }
+  }
+
+  &.btn-link {
+    color: $primary;
+    transition: color ease-in-out 0.15s;
+
+    &:hover {
+      color: $primary-hover;
+    }
+  }
+}

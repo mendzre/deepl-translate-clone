@@ -1,0 +1,29 @@
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  background-color: $light;
+}
+
+#root {
+  @extend .h-min-screen;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+}
+
+.h-min-screen {
+  min-height: 100vh;
+  min-height: 100dvh;
+}
+
+.shadow {
+  box-shadow: 0 1px 4px 0 rgba(0, 0, 0, 0.1) !important;
+}
+
+.w-prose {
+  max-width: 65ch;
+}
