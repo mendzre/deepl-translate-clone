@@ -1,7 +1,7 @@
 import TextArea from './components/TextArea.tsx'
 import ClipboardButton from './controls/ClipboardButton.tsx'
 import Loader from './controls/Loader.tsx'
-import SpeakerButton from './controls/SpeakerButton.tsx'
+import SpeechButton from './controls/SpeechButton.tsx'
 import useTranslate from '../../hooks/useTranslate'
 
 function TextAreaTo() {
@@ -15,7 +15,7 @@ function TextAreaTo() {
     >
       {loading !== undefined && loading && <Loader />}
       {result !== '' && <ClipboardButton />}
-      {result !== '' && <SpeakerButton />}
+      {result !== '' && <SpeechButton />}
     </TextArea>
   )
 }

@@ -74,7 +74,7 @@ export const CleanerIcon = () => {
   )
 }
 
-export const SpeakerIcon = () => {
+export const SpeechIcon = () => {
   return (
     <svg
       width="24"
@@ -97,10 +97,10 @@ export const SpeakerIcon = () => {
   )
 }
 
-export const SpeakerRunningIcon = () => {
+export const SpeechRunningIcon = () => {
   return (
     <svg
-      id="speaker-running-icon"
+      id="speech-running-icon"
       width="24"
       height="24"
       viewBox="0 0 20 20"
